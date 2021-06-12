@@ -1,0 +1,21 @@
+{
+  "extends": "@quasar/app/tsconfig-preset",
+
+  "compilerOptions": {
+    "strict": false,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "public/*": ["public/*"],
+      "app/*": ["*"],
+      "components/*": ["src/components/*"],
+      "layouts/*": ["src/layouts/*"],
+      "pages/*": ["src/pages/*"],
+      "assets/*": ["src/assets/*"],
+      "boot/*": ["src/boot/*"],
+      "css/*": ["src/css/*"],
+      "vue$": ["node_modules/vue/dist/vue.esm.js"]
+    }
+  }
+}
