@@ -14,7 +14,7 @@ if (process.env.DEV) {
 
   // axios.defaults.baseURL = "http://evensyell.ml/";
 } else {
-  axios.defaults.baseURL = '/'
+  axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 }
 
 // Be careful when using SSR for cross-request state pollution
