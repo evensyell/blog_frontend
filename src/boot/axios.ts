@@ -24,7 +24,10 @@ if (process.env.DEV) {
 // "export default () => {}" function below (which runs individually
 // for each client)
 // export const api = axios.create({ baseURL: 'http://127.0.0.1:8000/' })
-const api = axios.create({ baseURL: url, withCredentials: true })
+const api = axios.create({
+  baseURL: url,
+  headers: { 'X-Requested-With': 'XMLHttpRequest' },
+})
 
 api.interceptors.request.use(
   (config) => {
