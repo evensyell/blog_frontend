@@ -10,11 +10,11 @@ declare module '@vue/runtime-core' {
 
 // // 根据环境选择后端服务器
 if (process.env.DEV) {
-  axios.defaults.baseURL = 'http://127.0.0.1:8000/'
+  var url = 'http://127.0.0.1:8000/'
 
   // axios.defaults.baseURL = "http://evensyell.ml/";
 } else {
-  axios.defaults.baseURL = 'https://evensyell.ml/'
+  var url = 'https://evensyell.ml/'
 }
 
 // Be careful when using SSR for cross-request state pollution
@@ -24,7 +24,7 @@ if (process.env.DEV) {
 // "export default () => {}" function below (which runs individually
 // for each client)
 // export const api = axios.create({ baseURL: 'http://127.0.0.1:8000/' })
-const api = axios.create()
+const api = axios.create({ baseURL: url, withCredentials: true })
 
 api.interceptors.request.use(
   (config) => {
