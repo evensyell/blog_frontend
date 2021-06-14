@@ -41,13 +41,13 @@
 const instance = getCurrentInstance()
 import {
   ref,
-  toRefs,
+  watch,
   defineProps,
   getCurrentInstance,
   onMounted,
   onUnmounted,
 } from 'vue'
-import { throttle, debounce } from 'quasar'
+// import { throttle, debounce } from 'quasar'
 
 const active_id = ref('')
 
@@ -55,13 +55,14 @@ const props = defineProps({
   toc_tree: { type: [] as any },
 })
 
-const toc_tree = toRefs(props.toc_tree)
+// watch(
+//   () => active_id.value,
+//   () => {
+//     instance.emit('tocscroll')
+//   }
+// )
 
 const toHeading = (id) => {
-  // document.querySelector('#' + id).scrollIntoView({
-  //   behavior: 'smooth'
-  // })
-
   instance.emit('anchorto', id)
 }
 
@@ -90,7 +91,7 @@ const onScroll = () => {
     active_id.value = navContents[navIndex].id
   }
 }
-const onScroll_2 = debounce(onScroll, 100)
+// const onScroll_2 = debounce(onScroll, 100)
 
 onMounted(() => {
   window.addEventListener('scroll', onScroll)

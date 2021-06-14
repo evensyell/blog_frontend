@@ -1,12 +1,6 @@
 <template>
   <div class="q-ml-sm">
-    <q-btn
-      flat
-      round
-      icon="music_note"
-      @click="bgmClick"
-      :id="state.styleid"
-    >
+    <q-btn flat round icon="music_note" @click="bgmClick" :id="state.styleid">
       <chip-tip tip="BGM"></chip-tip>
     </q-btn>
 
@@ -25,10 +19,17 @@
 
         <q-card-section class="row items-center no-wrap q-pr-xs q-gutter-xs">
           <div>
-            <div class="text-bold text-subtitle2 ellipsis">
+            <div
+              class="text-bold text-subtitle2 ellipsis"
+              style="max-width: 150px"
+              :title="state.music.title"
+            >
               {{ state.music.title }}
             </div>
-            <div class="text-grey text-subtitle2 ellipsis">
+            <div
+              class="text-grey text-subtitle2 ellipsis"
+              style="max-width: 130px"
+            >
               {{ state.music.artist }}
             </div>
           </div>

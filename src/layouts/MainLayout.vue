@@ -13,16 +13,8 @@
       style="max-width: 1700px; margin: auto"
     >
       <q-toolbar class="q-my-none">
+
         <!-- 侧边栏按钮 -->
-        <!-- <q-btn
-          flat
-          dense
-          round
-          size="16px"
-          class="on-left xs"
-          icon="menu"
-          @click="is_show_left = !is_show_left"
-        /> -->
         <q-fab
           v-model="is_show_left"
           class="xs"
@@ -50,7 +42,7 @@
 
         <!-- Logo  -->
         <q-toolbar-title class="cursor-pointer" @click="toIndex">
-          <q-avatar class="logo on-left">
+          <q-avatar size="md" class="logo on-left">
             <img src="icons/favicon-96x96.png" />
           </q-avatar>
           <span class="xs text-bold">花自绰约 藤自窈窕</span>

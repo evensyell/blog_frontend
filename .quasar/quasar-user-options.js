@@ -14,7 +14,7 @@ import iconSet from 'quasar/icon-set/material-icons'
 
 
 
-import {Loading,Notify,LocalStorage,AddressbarColor} from 'quasar'
+import {Notify,LocalStorage,AddressbarColor} from 'quasar'
 
 
-export default { config: {"loading":{},"notify":{"color":"primary"}},iconSet,plugins: {Loading,Notify,LocalStorage,AddressbarColor} }
+export default { config: {"notify":{"color":"primary"}},iconSet,plugins: {Notify,LocalStorage,AddressbarColor} }

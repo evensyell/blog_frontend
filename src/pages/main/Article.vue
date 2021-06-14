@@ -18,13 +18,14 @@
       <div class="row">
         <!-- 大屏幕toc -->
         <!-- <div class="col-3 q-pt-xl q-pr-md gt-xs"> -->
-        <div class="col-3 q-pt-xl q-pr-md gt-xs">
-          <q-scroll-area style="height: 600px" class="q-pt-lg toc-sticky">
-            <toc
-              :toc_tree="state.toctree"
-              @anchorto="toAnchor"
-            />
-          </q-scroll-area>
+        <div class="col-3 q-pt-xl q-pr-md " style="position: relative ">
+          <!-- <q-scroll-area class="q-py-lg toc-sticky tocarea"> -->
+          <toc
+            :toc_tree="state.toctree"
+            @anchorto="toAnchor"
+            class="q-pt-lg tocarea toc-sticky"
+          />
+          <!-- </q-scroll-area> -->
         </div>
 
         <!-- 右侧主体 -->
@@ -125,7 +126,7 @@ import Comment from 'src/components/user/Comment.vue'
 import ChipTip from 'components/common/ChipTip.vue'
 import Markdown from 'src/components/Markdown.vue'
 
-import { reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { api } from 'boot/axios'
 
 import { useRoute, useRouter } from 'vue-router'
@@ -136,6 +137,8 @@ const $router = useRouter()
 // const $q = useQuasar()
 
 import { hmsFormat } from 'assets/js/filters.js'
+// import { createLogger } from 'vuex'
+// import { debounce } from 'quasar'
 
 // const qm = ref(null)
 
@@ -145,6 +148,9 @@ const state = reactive({
   article: {} as any,
   mkd: 'Markdown file is Loading...',
 })
+
+const tocarea = ref()
+// const tocarea_height = 600
 
 // **初始化
 const getData = (id) => {
@@ -163,9 +169,7 @@ const getData = (id) => {
 }
 onMounted(() => {
   getData($route.params.id)
-  console.log('---------------------')
-
-  // console.log(VMdPreview);
+  // const tocarea_height = parseInt(tocarea.value.$attrs.style.height)
 })
 
 const getTocData = (toc) => {
@@ -189,6 +193,23 @@ const toAnchor = (id) => {
   })
 }
 
+// let lasttop = ref(0)
+
+// const tocScroll = () => {
+//   // 获取当前文档流的 scrollTop
+//   const persent =
+//     (document.documentElement.scrollTop - lasttop.value) /
+//     document.body.scrollHeight
+//   console.log('------------------***************')
+//   console.log(persent*600)
+//   console.log(lasttop.value)
+//   console.log('------------------***************')
+//   // debounce(
+//   tocarea.value.setScrollPosition('vertical', persent * 600, 200)
+//   // , 200)
+//   lasttop.value = document.documentElement.scrollTop
+// }
+
 const toAnchorBySider = (id) => {
   setTimeout(() => {
     toAnchor(id)
@@ -205,8 +226,11 @@ const toAnchorBySider = (id) => {
 
 .toc-sticky
   position: sticky
-  top: 100px
+  top: 200px
 
 .tocsider
   background: rgba(0,0, 0, 0.1 )
+
+// .tocarea
+//   height: 400px
 </style>
