@@ -17,6 +17,7 @@ if (process.env.DEV) {
   axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 }
 
+
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
 // If any client changes this (global) instance, it might be a
