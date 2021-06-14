@@ -14,7 +14,7 @@ if (process.env.DEV) {
 
   // axios.defaults.baseURL = "http://evensyell.ml/";
 } else {
-  var url = 'https://evensyell.ml/'
+  var url = '/'
 }
 
 // Be careful when using SSR for cross-request state pollution
@@ -26,7 +26,6 @@ if (process.env.DEV) {
 // export const api = axios.create({ baseURL: 'http://127.0.0.1:8000/' })
 const api = axios.create({
   baseURL: url,
-  headers: { 'X-Requested-With': 'XMLHttpRequest' },
 })
 
 api.interceptors.request.use(
