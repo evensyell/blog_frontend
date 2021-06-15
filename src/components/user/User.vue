@@ -409,7 +409,7 @@ const register = () => {
     password: state.password,
   }
   if (data.password == '') {
-    data.password = 'qingxi2158'
+    data.password = '3.1415926535'
   }
   api
     .post('/api-register/', data)
