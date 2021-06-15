@@ -16,7 +16,8 @@ const instance = getCurrentInstance()
 import Vue3MarkdownIt from 'vue3-markdown-it'
 import { defineProps, onMounted, getCurrentInstance } from 'vue'
 
-import 'highlight.js/styles/tomorrow-night-eighties.css'
+import 'highlight.js/styles/default.css'
+// kimbie.light 黄色纸张
 
 const props = defineProps({
   mkd: { default: '' },
