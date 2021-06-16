@@ -37,7 +37,7 @@ const options = {
     },
   },
   highlight: {
-    hljs: require('highlight.js'),
+    // hljs: require('highlight.js'),
   },
 }
 

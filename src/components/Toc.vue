@@ -14,7 +14,13 @@
         >
 
         <!-- 2级目录 -->
-        <ol v-for="(h2, index2) in h1.children">
+        <ol
+          v-for="(h2, index2) in h1.children"
+          v-show="
+            h1.children.map((obj) => obj.id).indexOf(active_id) != -1 ||
+            h1.id == active_id
+          "
+        >
           <a
             @click="toHeading(h2.id)"
             :class="active_id == h2.id ? 'current_toc' : ''"
@@ -41,7 +47,7 @@
 const instance = getCurrentInstance()
 import {
   ref,
-  watch,
+  computed,
   defineProps,
   getCurrentInstance,
   onMounted,
@@ -54,6 +60,9 @@ const active_id = ref('')
 const props = defineProps({
   toc_tree: { type: [] as any },
 })
+// const is_show_h2 = computed(() => {
+//   if(active_id.value)
+// })
 
 // watch(
 //   () => active_id.value,
@@ -83,7 +92,7 @@ const onScroll = () => {
   for (let n = 0; n < offsetTopArr.length; n++) {
     // 如果 scrollTop 大于等于第 n 个元素的 offsetTop 则说明 n-1 的内容已经完全不可见
     // 那么此时导航索引就应该是 n 了
-    if (scrollTop + 50 >= offsetTopArr[n]) {
+    if (scrollTop + 100 >= offsetTopArr[n]) {
       navIndex = n
     }
   }

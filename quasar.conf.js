@@ -62,10 +62,10 @@ module.exports = configure(function (ctx) {
       // preloadChunks: true,
       // showProgress: true,
       // gzip: true,
-      // analyze: true,
+      analyze: true,
 
       // Options below are automatically set depending on the env, set them if you want to override
-      // extractCSS: false,
+      extractCSS: true,
 
       // https://v2.quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

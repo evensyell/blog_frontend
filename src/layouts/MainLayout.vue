@@ -13,7 +13,6 @@
       style="max-width: 1700px; margin: auto"
     >
       <q-toolbar class="q-my-none">
-
         <!-- 侧边栏按钮 -->
         <q-fab
           v-model="is_show_left"
@@ -30,12 +29,13 @@
         >
           <q-fab-action
             type="button"
+            class="shadowonly"
             v-for="link in links"
             :to="link.to"
             :icon="link.icon"
             :color="link.color"
             :label="link.label"
-            :label-class="'bg-' + link.color + ' text-white shadowonly'"
+            :label-class="'bg-' + link.color + ' text-white'"
             external-label
           />
         </q-fab>
@@ -45,8 +45,8 @@
           <q-avatar size="md" class="logo on-left">
             <img src="icons/favicon-96x96.png" />
           </q-avatar>
-          <span class="xs text-bold">花自绰约 藤自窈窕</span>
-          <span class="sm text-bold">花自绰约</span>
+          <!-- <span class="xs text-bold">花自绰约 藤自窈窕</span> -->
+          <span class="lt-md text-bold">花自绰约</span>
           <span class="gt-sm text-bold">花自绰约 藤自窈窕</span>
         </q-toolbar-title>
 
@@ -151,7 +151,8 @@ import { debounce } from 'quasar'
 
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
-$q.addressbarColor.set('#a2e3fa')
+
+$q.addressbarColor.set('#00CCCC')
 
 // **Header
 const header_bg = reactive({

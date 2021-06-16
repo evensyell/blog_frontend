@@ -18,7 +18,7 @@
       <div class="row">
         <!-- 大屏幕toc -->
         <!-- <div class="col-3 q-pt-xl q-pr-md gt-xs"> -->
-        <div class="col-3 q-pt-xl q-pr-md " style="position: relative ">
+        <div class=" gt-xs col-3 q-pt-xl q-px-sm" style="position: relative">
           <!-- <q-scroll-area class="q-py-lg toc-sticky tocarea"> -->
           <toc
             :toc_tree="state.toctree"
@@ -98,7 +98,7 @@
       <toc
         :toc_tree="state.toctree"
         @anchorto="toAnchorBySider"
-        class="toc-sticky q-mx-md"
+        class="q-mx-md"
       />
     </q-drawer>
 

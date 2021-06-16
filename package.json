@@ -14,9 +14,8 @@
     "@quasar/extras": "^1.10.6",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "highlight.js": "^11.0.1",
-    "quasar": "^2.0.0-rc.1",
-    "vue3-markdown-it": "^1.0.8",
+    "quasar": "^2.0.0-rc.2",
+    "vue3-markdown-it": "^1.0.9",
     "vuex": "^4.0.1"
   },
   "devDependencies": {
