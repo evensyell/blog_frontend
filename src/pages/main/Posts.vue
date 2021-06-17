@@ -19,7 +19,7 @@
         <q-list class="col-md-9 col-lg-9 col-sm-9 col-12">
           <q-card
             v-for="post in state.posts"
-            class="shadowhover q-my-lg q-pt-sm q-pb-none q-px-sm"
+            class="shadowonly q-my-lg q-pt-sm q-pb-none q-px-sm"
           >
             <!-- 树洞标题行 -->
             <q-card-section class="q-py-sm q-ma-none">
@@ -194,8 +194,12 @@
       <!-- 发布新树洞 -->
       <div class="col-12 text-left q-mb-md text-h5 text-bold">发布一个树洞</div>
 
-      <q-form v-if="LocalStorage.getItem('uid')" @submit="newPost()" class="row flex q-pb-md">
-        <div class="col-10 q-gutter-sm">
+      <q-form
+        v-if="LocalStorage.getItem('uid')"
+        @submit="newPost()"
+        class="row flex q-pb-md"
+      >
+        <div class="col-9 col-xs-12 q-gutter-sm">
           <q-input
             filled
             bg-color="white"
@@ -218,27 +222,26 @@
             clearable
             clear-icon="clear"
           >
-            <template v-slot:prepend> <q-icon name="photo" /> </template>
+            <template v-slot:prepend>
+              <q-icon name="photo" />
+            </template>
           </q-file>
-        </div>
-        <div class="col-2 q-px-sm row">
           <q-btn
             unelevated
             no-wrap
             align="evenly"
             color="primary"
-            class="col-12 text-white shadowhover"
+            class="col-12 text-white text-bold q-mt-md"
             type="submit"
           >
-            <div>
-              发布
-              <br />树洞
-            </div>
+            发布
           </q-btn>
         </div>
+        <!-- <div class="col-xs-12 col-2 q-gutter-sm row"></div> -->
       </q-form>
-      <div v-else class="text-center text-positive">点击顶栏头像按钮登录以发布树洞</div>
-
+      <div v-else class="text-center text-positive">
+        点击顶栏头像按钮登录以发布树洞
+      </div>
     </div>
   </q-page>
 </template>
