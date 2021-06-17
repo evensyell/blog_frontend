@@ -29,7 +29,6 @@
         >
           <q-fab-action
             type="button"
-            class="shadowonly"
             v-for="link in links"
             :to="link.to"
             :icon="link.icon"
@@ -124,7 +123,7 @@
     ><!-- 页脚 -->
     <div class="bg-grey-11 text-center q-py-sm footer">
       <p class="q-my-none text-grey">
-        Evensyell
+        evensyell@qq.com
         <q-icon name="copyright" color="primary" /> 2019 - 2021
         <span>|</span> Powered by
         <a class="text-blue-grey-4" href="https://cn.vuejs.org/">Vue</a> and

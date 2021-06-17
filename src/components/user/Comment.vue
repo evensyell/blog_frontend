@@ -3,7 +3,11 @@
     <div class="text-h6 text-bold q-pb-md">
       {{ state.comments.length }} 评论
     </div>
-    <q-form @submit="postComment" class="row flex">
+    <q-form
+      v-if="LocalStorage.getItem('uid')"
+      @submit="postComment"
+      class="row flex"
+    >
       <div class="col-10">
         <q-input
           v-model="state.edit_comment"
@@ -28,11 +32,14 @@
         </q-btn>
       </div>
     </q-form>
+    <div v-else class="text-center text-positive">点击顶栏头像按钮登录以发布评论</div>
 
     <!-- 评论列表 -->
-    <div v-if="aid == 0" class="text-bold text-h5 q-mt-md">暂无评论</div>
+    <!-- <div v-if="state.comments.length == 0" class="text-bold text-h5 q-mt-md">
+      <span class="inline_ text-h6 text-bold">暂无评论 </span>
+    </div> -->
 
-    <div v-else class="q-gutter-xs q-mt-xl">
+    <div v-show="state.comments.length != 0" class="q-gutter-xs q-mt-xl">
       <div class="q-mt-lg row">
         <span class="inline_ text-h6 text-bold">历史评论：</span>
         <q-space />
@@ -89,7 +96,7 @@ import { api } from 'boot/axios'
 import { useStore } from 'src/store/index'
 const $store = useStore()
 
-import { useQuasar } from 'quasar'
+import { useQuasar, LocalStorage } from 'quasar'
 const $q = useQuasar()
 
 import { hmsFormat, goneTimeFormat } from 'assets/js/filters.js'

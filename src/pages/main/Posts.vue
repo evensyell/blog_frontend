@@ -1,7 +1,7 @@
 <template>
   <q-page class="row justify-center">
     <q-img
-      src="https://evens-oss.oss-cn-shanghai.aliyuncs.com/img/articles.jpg"
+      src="https://evens-oss.oss-cn-shanghai.aliyuncs.com/img/20210618014415.jpg"
       style="height: 62vh; width: 100vd; opacity: 0.95"
     />
 
@@ -97,7 +97,11 @@
                 </template>
 
                 <!-- 写回复 -->
-                <q-form @submit="newReply(post.id)" class="row flex q-pb-md">
+                <q-form
+                  v-if="LocalStorage.getItem('uid')"
+                  @submit="newReply(post.id)"
+                  class="row flex q-pb-md"
+                >
                   <div class="col-10">
                     <q-input
                       v-model="state.edit_comment"
@@ -122,6 +126,9 @@
                     </q-btn>
                   </div>
                 </q-form>
+                <div v-else class="text-center text-positive">
+                  点击顶栏头像按钮登录以进行回复
+                </div>
 
                 <!-- 回复列表 -->
                 <q-card square flat v-for="(reply, index) in post.replies">
@@ -187,7 +194,7 @@
       <!-- 发布新树洞 -->
       <div class="col-12 text-left q-mb-md text-h5 text-bold">发布一个树洞</div>
 
-      <q-form @submit="newPost()" class="row flex q-pb-md">
+      <q-form v-if="LocalStorage.getItem('uid')" @submit="newPost()" class="row flex q-pb-md">
         <div class="col-10 q-gutter-sm">
           <q-input
             filled
@@ -230,6 +237,8 @@
           </q-btn>
         </div>
       </q-form>
+      <div v-else class="text-center text-positive">点击顶栏头像按钮登录以发布树洞</div>
+
     </div>
   </q-page>
 </template>
@@ -260,7 +269,7 @@ const editer_config = {
   // bold: { label: null, icon: 'format_bold', tip: 'Bold' },
 }
 const warnings = [
-  '1. 此地请以善意待人',
+  '1. 善意待人',
   '2. 任何人登陆后均可发布、回复树洞',
   '3. 发布内容时请留意个人隐私信息',
   '4. 回复仅支持换行和空格两种排版格式；树洞支持的排版格式见编辑器',
